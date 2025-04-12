@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>CRSUMMIT-AI</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/vendor.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script defer src="js/fontawesome/all.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<body id="top">
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+        <div class="s-header__content">
+          <div class="s-header__logo">
+            <a href="index.html">
+              <p>CRSUMMIT AI</p> 
+            </a>
+          </div>
+      
+          <nav class="s-header__nav-wrap">
+            <ul class="s-header__nav">
+              <li><a class="smoothscroll" href="index.html" title="Intro">Home</a></li>
+              <li><a class="smoothscroll" href="#registration.html" title="About">Register</a></li>
+            </ul>
+          </nav>
+        </div>
+      
+      <!-- end header-content -->
+
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+
+
+    <!-- hero
+    ================================================== -->
+ 
+            <br></br>
+            
+    <form id="registrationForm">
+        <h5 class="Heading-CR" style="color: #000;">Register for CRSUMMIT-AI</h5>
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+      
+        <label for="occupation">Occupation</label>
+        <select id="occupation" name="occupation" required>
+          <option value="">Select an Option</option>
+          <option value="Student">Student</option>
+          <option value="Corper">Corper</option>
+          <option value="Others">Others</option>
+        </select>
+      
+        <label for="location">Location</label>
+        <textarea id="location" name="location" placeholder="Enter your location..."  required></textarea>
+      
+        <button type="submit">Book a Seat</button>
+      </form>
+      
+<!--
+        <div class="s-hero__video">
+            <a class="s-hero__video-link" href="https://player.vimeo.com/video/117310401?color=01aef0&amp;title=0&amp;byline=0&amp;portrait=0" data-lity="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 12l-18 12v-24z"/></svg>
+                <span class="s-hero__video-text">Play Video</span>
+            </a>
+        </div>
+
+        <div class="s-hero__scroll">
+            <a href="#about" class="s-hero__scroll-link smoothscroll">
+                Scroll Down
+            </a>
+        </div>
+    -->
+        <!-- footer -->
+        <footer style="text-align: center; padding: 20px 0; font-size: 12px; letter-spacing: 10px; color: #fff;">
+            &copy; 2025 Techy Rex
+        </footer>
+
+
+    </section> <!-- end s-hero -->
+
+
+    
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <!-- JAVASCRIPT FILES -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzhSLdbeSJc8cRziPma-CUwMbyypC0Aq5fO7n3Z8cyyyEnsmDzI2u8dRKG4wXElcInY-g/exec';
+        const form = document.getElementById('registrationForm');
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+      
+          // Optional: Disable button while processing
+          const submitButton = form.querySelector('button[type="submit"]');
+          submitButton.disabled = true;
+          submitButton.textContent = 'Submitting...';
+      
+          fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+              alert('🎉 Registration successful!');
+              form.reset();
+              submitButton.disabled = false;
+              submitButton.textContent = 'Book a Seat';
+            })
+            .catch(error => {
+              console.error('Error!', error.message);
+              alert('❌ Something went wrong. Please try again.');
+              submitButton.disabled = false;
+              submitButton.textContent = 'Book a Seat';
+            });
+        });
+      </script>
+      
+
+</body>
+
+</html>
